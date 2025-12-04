@@ -2,12 +2,20 @@
   "name": "@purecore/configify",
   "version": "0.1.0",
   "description": "> **Configify** - Uma biblioteca ultra-leve e independente para gerenciamento de configurações em Node.js/JavaScript",
-  "main": "src/Configify.js",
+  "main": "src/index.js",
   "scripts": {
     "start": "node src/Configify.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": ["config", "configify", "configuração", "configurações", "configuração de aplicações", "configuração de aplicações em Node.js", "configuração de aplicações em JavaScript", "configuração de aplicações em TypeScript"],
-  "author": "Suissa",
+  "author": "suissa",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/suissa/purecore-configify"
+  },
+  "bugs": {
+    "url": "https://github.com/suissa/purecore-configify/issues"
+  },
+  "homepage": "https://github.com/suissa/purecore-configify",
   "license": "MIT"
 }
