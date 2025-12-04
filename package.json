@@ -1,6 +1,6 @@
 {
   "name": "@purecore/configify",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "> **Configify** - Uma biblioteca ultra-leve e independente para gerenciamento de configurações em Node.js/JavaScript",
   "main": "src/index.js",
   "scripts": {

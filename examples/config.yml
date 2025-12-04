@@ -1,0 +1,67 @@
+# Configurações da aplicação
+app:
+  name: 'My Awesome App'
+  version: '1.0.0'
+  port: 3000
+  debug: true
+  environment: 'development'
+
+# Configurações do banco de dados
+database:
+  host: 'localhost'
+  port: 27017
+  name: 'myapp'
+  username: 'admin'
+  password: 'secret123'
+  maxConnections: 100
+  timeout: 5000
+
+# Configurações da API
+api:
+  baseUrl: 'http://localhost:3000/api'
+  timeout: 5000
+  retries: 3
+  rateLimit:
+    windowMs: 900000
+    max: 100
+
+# Configurações de autenticação
+auth:
+  jwt:
+    secret: 'your-secret-key-here'
+    expiresIn: '24h'
+  bcrypt:
+    rounds: 12
+
+# Configurações de cache
+cache:
+  redis:
+    host: 'localhost'
+    port: 6379
+    ttl: 3600
+
+# Configurações de email
+email:
+  smtp:
+    host: 'smtp.gmail.com'
+    port: 587
+    secure: false
+    auth:
+      user: 'your-email@gmail.com'
+      pass: 'your-app-password'
+
+# Configurações de logging
+logging:
+  level: 'info'
+  format: 'json'
+  transports:
+    - console
+    - file
+
+# Configurações de features
+features:
+  - authentication
+  - authorization
+  - rate_limiting
+  - caching
+  - email_notifications
