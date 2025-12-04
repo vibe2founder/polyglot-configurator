@@ -1,4 +1,8 @@
-# Configify
+<div align="center" style="background-color: #000">
+
+<img src="https://i.imgur.com/OF7piQE.png" style="display:block; margin: 0 auto; margint-top: 20px">
+
+</div>
 
 > **Configify** - Uma biblioteca ultra-leve e independente para gerenciamento de configurações em Node.js/JavaScript
 
@@ -71,6 +75,7 @@ loadEnv('.env');
 // Valores já vêm com tipos corretos!
 // process.env.PORT já é number
 // process.env.DEBUG já é boolean
+// process.env.TIMEOUT já é number
 ```
 
 ### 3. **YAML Parsing Pesado e Complexo**
