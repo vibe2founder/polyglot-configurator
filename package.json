@@ -1,7 +1,7 @@
 {
-  "name": "@purecore/one-config-4-all",
+  "name": "@purecore/one-configurator-4-all",
   "version": "0.1.0",
-  "description": "> **One Config 4 All** - Uma biblioteca ultra-leve e independente para gerenciamento de configurações em Node.js/JavaScript",
+  "description": "> **One Configurator 4 All** - Uma biblioteca ultra-leve e independente para gerenciamento de configurações em Node.js/JavaScript",
   "main": "src/index.js",
   "scripts": {
     "start": "node src/index.js",
@@ -17,7 +17,7 @@
   },
   "keywords": [
     "config",
-    "one-config-4-all",
+    "one-configurator-4-all",
     "configuração",
     "configurações",
     "configuração de aplicações",
@@ -28,12 +28,12 @@
   "author": "suissa",
   "repository": {
     "type": "git",
-    "url": "https://github.com/suissa/purecore-one-config-4-all"
+    "url": "https://github.com/suissa/purecore-one-configurator-4-all"
   },
   "bugs": {
-    "url": "https://github.com/suissa/purecore-one-config-4-all/issues"
+    "url": "https://github.com/suissa/purecore-one-configurator-4-all/issues"
   },
-  "homepage": "https://github.com/suissa/purecore-one-config-4-all",
+  "homepage": "https://github.com/suissa/purecore-one-configurator-4-all",
   "license": "MIT",
   "devDependencies": {
     "jest": "^30.2.0",
