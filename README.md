@@ -1,18 +1,18 @@
 <div align="center" style="background-color: #000">
 
-<img src="https://i.imgur.com/OF7piQE.png" style="display:block; margin: 0 auto; margint-top: 20px">
+<img src="https://i.imgur.com/pbHtEww.png" style="display:block; margin: 0 auto; margint-top: 20px">
 
 </div>
 
-> **Configify** - Uma biblioteca ultra-leve e independente para gerenciamento de configurações em Node.js/JavaScript
+> **one-configurator-4-all** - Uma biblioteca ultra-leve e independente para gerenciamento de configurações em Node.js/JavaScript
 
 [![npm version](https://badge.fury.io/js/configify.svg)](https://badge.fury.io/js/configify)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Zero Dependencies](https://img.shields.io/badge/dependencies-0-green.svg)]()
 
-## 🎯 O Que É O Configify?
+## 🎯 O Que É O one-configurator-4-all?
 
-O **Configify** é uma biblioteca JavaScript/Node.js que resolve um problema crítico no ecossistema: **gerenciar configurações de aplicações sem adicionar dependências externas pesadas**.
+O **one-configurator-4-all** é uma biblioteca JavaScript/Node.js que resolve um problema crítico no ecossistema: **gerenciar configurações de aplicações sem adicionar dependências externas pesadas**.
 
 Ele oferece uma solução completa para:
 
@@ -24,7 +24,7 @@ Ele oferece uma solução completa para:
 
 ---
 
-## 🚨 Problemas Que O Configify Resolve
+## 🚨 Problemas Que O one-configurator-4-all Resolve
 
 ### 1. **O Pesadelo Das Dependências Externas**
 
@@ -41,11 +41,11 @@ const config = yaml.load(fs.readFileSync("config.yaml", "utf8")); // + ~500KB
 // Bundle final: +700KB só para configuração básica!
 ```
 
-**Com Configify:**
+**Com one-configurator-4-all:**
 
 ```javascript
 // ✅ Zero dependências
-const { loadEnv, loadYaml } = require("./Configify");
+const { loadEnv, loadYaml } = require("./one-configurator-4-all");
 
 loadEnv(); // Carrega .env automaticamente
 const config = loadYaml("config.yaml"); // Parseia YAML
@@ -70,11 +70,11 @@ const port = parseInt(process.env.PORT);
 const debug = process.env.DEBUG === "true";
 ```
 
-**Solução Configify:**
+**Solução one-configurator-4-all:**
 
 ```javascript
 // ✅ Tipagem automática inteligente
-const { loadEnv } = require("./Configify");
+const { loadEnv } = require("./one-configurator-4-all");
 loadEnv(".env");
 
 // Valores já vêm com tipos corretos!
