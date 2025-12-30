@@ -1,21 +1,30 @@
 {
-  "name": "@purecore/configify",
-  "version": "0.2.0",
-  "description": "> **Configify** - Uma biblioteca ultra-leve e independente para gerenciamento de configurações em Node.js/JavaScript",
+  "name": "@purecore/one-config-4-all",
+  "version": "0.1.0",
+  "description": "> **One Config 4 All** - Uma biblioteca ultra-leve e independente para gerenciamento de configurações em Node.js/JavaScript",
   "main": "src/index.js",
   "scripts": {
-    "start": "node src/Configify.js",
+    "start": "node src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": ["config", "configify", "configuração", "configurações", "configuração de aplicações", "configuração de aplicações em Node.js", "configuração de aplicações em JavaScript", "configuração de aplicações em TypeScript"],
+  "keywords": [
+    "config",
+    "one-config-4-all",
+    "configuração",
+    "configurações",
+    "configuração de aplicações",
+    "configuração de aplicações em Node.js",
+    "configuração de aplicações em JavaScript",
+    "configuração de aplicações em TypeScript"
+  ],
   "author": "suissa",
   "repository": {
     "type": "git",
-    "url": "https://github.com/suissa/purecore-configify"
+    "url": "https://github.com/suissa/purecore-one-config-4-all"
   },
   "bugs": {
-    "url": "https://github.com/suissa/purecore-configify/issues"
+    "url": "https://github.com/suissa/purecore-one-config-4-all/issues"
   },
-  "homepage": "https://github.com/suissa/purecore-configify",
+  "homepage": "https://github.com/suissa/purecore-one-config-4-all",
   "license": "MIT"
 }
