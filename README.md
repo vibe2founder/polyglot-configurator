@@ -15,6 +15,7 @@
 O **Configify** é uma biblioteca JavaScript/Node.js que resolve um problema crítico no ecossistema: **gerenciar configurações de aplicações sem adicionar dependências externas pesadas**.
 
 Ele oferece uma solução completa para:
+
 - ✅ Carregar variáveis de ambiente (.env)
 - ✅ Parsear arquivos YAML
 - ✅ Estruturas de configuração aninhadas
@@ -28,24 +29,26 @@ Ele oferece uma solução completa para:
 ### 1. **O Pesadelo Das Dependências Externas**
 
 **Situação Atual:**
+
 ```javascript
 // ❌ Com dependências externas
-const dotenv = require('dotenv');
-const yaml = require('js-yaml');
+const dotenv = require("dotenv");
+const yaml = require("js-yaml");
 
 dotenv.config(); // + ~200KB
-const config = yaml.load(fs.readFileSync('config.yaml', 'utf8')); // + ~500KB
+const config = yaml.load(fs.readFileSync("config.yaml", "utf8")); // + ~500KB
 
 // Bundle final: +700KB só para configuração básica!
 ```
 
 **Com Configify:**
+
 ```javascript
 // ✅ Zero dependências
-const { loadEnv, loadYaml } = require('./Configify');
+const { loadEnv, loadYaml } = require("./Configify");
 
 loadEnv(); // Carrega .env automaticamente
-const config = loadYaml('config.yaml'); // Parseia YAML
+const config = loadYaml("config.yaml"); // Parseia YAML
 
 // Bundle final: 0KB adicional!
 ```
@@ -53,24 +56,26 @@ const config = loadYaml('config.yaml'); // Parseia YAML
 ### 2. **Variáveis De Ambiente Sempre Como String**
 
 **Problema Clássico:**
+
 ```javascript
 // ❌ Sempre string, perde tipagem
-require('dotenv').config();
+require("dotenv").config();
 
-console.log(process.env.PORT);        // "3000" (string)
-console.log(process.env.DEBUG);       // "true" (string)
-console.log(process.env.TIMEOUT);     // "5000" (string)
+console.log(process.env.PORT); // "3000" (string)
+console.log(process.env.DEBUG); // "true" (string)
+console.log(process.env.TIMEOUT); // "5000" (string)
 
 // Sempre preciso converter manualmente...
 const port = parseInt(process.env.PORT);
-const debug = process.env.DEBUG === 'true';
+const debug = process.env.DEBUG === "true";
 ```
 
 **Solução Configify:**
+
 ```javascript
 // ✅ Tipagem automática inteligente
-const { loadEnv } = require('./Configify');
-loadEnv('.env');
+const { loadEnv } = require("./Configify");
+loadEnv(".env");
 
 // Valores já vêm com tipos corretos!
 // process.env.PORT já é number
@@ -81,9 +86,10 @@ loadEnv('.env');
 ### 3. **YAML Parsing Pesado e Complexo**
 
 **Situação Atual:**
+
 ```javascript
 // ❌ Dependência pesada obrigatória
-const yaml = require('js-yaml'); // ~500KB
+const yaml = require("js-yaml"); // ~500KB
 
 const config = yaml.load(`
 database:
@@ -98,17 +104,19 @@ database:
 ```
 
 **Com Configify:**
+
 ```javascript
 // ✅ Parser YAML nativo e leve
-const { loadYaml } = require('./Configify');
+const { loadYaml } = require("./Configify");
 
-const config = loadYaml('config.yaml');
+const config = loadYaml("config.yaml");
 // Mesmo resultado, sem dependências!
 ```
 
 ### 4. **Configurações Aninhadas Difíceis de Gerenciar**
 
 **Problema:**
+
 ```javascript
 // ❌ Estruturas complexas ficam bagunçadas
 const config = {
@@ -117,19 +125,20 @@ const config = {
     port: parseInt(process.env.DB_PORT),
     credentials: {
       username: process.env.DB_USER,
-      password: process.env.DB_PASS
-    }
+      password: process.env.DB_PASS,
+    },
   },
   api: {
     timeout: parseInt(process.env.API_TIMEOUT),
-    retries: parseInt(process.env.API_RETRIES)
-  }
+    retries: parseInt(process.env.API_RETRIES),
+  },
 };
 
 // Fácil perder alguma conversão de tipo!
 ```
 
 **Solução Configify:**
+
 ```yaml
 # config.yaml
 database:
@@ -150,26 +159,27 @@ api:
 
 ```javascript
 // ✅ Estrutura limpa e tipada
-const { loadYaml } = require('./Configify');
-const config = loadYaml('config.yaml');
+const { loadYaml } = require("./Configify");
+const config = loadYaml("config.yaml");
 
-console.log(config.database.port);     // 5432 (number)
-console.log(config.api.timeout);       // 5000 (number)
-console.log(config.api.features);      // ['auth', 'cache', 'logging'] (array)
+console.log(config.database.port); // 5432 (number)
+console.log(config.api.timeout); // 5000 (number)
+console.log(config.api.features); // ['auth', 'cache', 'logging'] (array)
 ```
 
 ### 5. **Bundle Size Explode Com Múltiplas Bibliotecas**
 
 **Cenário Real:**
+
 ```json
 // package.json típico
 {
   "dependencies": {
-    "dotenv": "^16.0.0",        // 200KB
-    "js-yaml": "^4.1.0",        // 500KB
-    "config": "^3.3.0",         // 150KB
-    "convict": "^6.2.0",        // 300KB
-    "nconf": "^0.12.0"          // 200KB
+    "dotenv": "^16.0.0", // 200KB
+    "js-yaml": "^4.1.0", // 500KB
+    "config": "^3.3.0", // 150KB
+    "convict": "^6.2.0", // 300KB
+    "nconf": "^0.12.0" // 200KB
   }
 }
 ```
@@ -177,6 +187,7 @@ console.log(config.api.features);      // ['auth', 'cache', 'logging'] (array)
 **Total: ~1.35MB** só para configuração!
 
 **Com Configify:**
+
 ```json
 // ✅ Zero dependências
 {
@@ -193,12 +204,15 @@ console.log(config.api.features);      // ['auth', 'cache', 'logging'] (array)
 O Configify é construído com três funções principais:
 
 ### `loadEnv(filePath?)`
+
 Carrega variáveis de ambiente de arquivo `.env` para `process.env`
 
 ### `parseYaml(yamlString)`
+
 Converte string YAML para objeto JavaScript (parser próprio, sem dependências)
 
 ### `loadYaml(filePath)`
+
 Lê arquivo YAML e retorna objeto JavaScript
 
 ---
@@ -213,6 +227,7 @@ cp Configify.js ./lib/Configify.js
 ```
 
 Ou instale via npm (quando disponível):
+
 ```bash
 npm install configify
 ```
@@ -224,16 +239,17 @@ npm install configify
 ### 1. Carregamento de Variáveis de Ambiente
 
 ```javascript
-const { loadEnv } = require('./Configify');
+const { loadEnv } = require("./Configify");
 
 // Carrega .env do diretório atual
 loadEnv();
 
 // Carrega .env de caminho específico
-loadEnv('./config/.env.production');
+loadEnv("./config/.env.production");
 ```
 
 **Arquivo .env:**
+
 ```env
 PORT=3000
 DEBUG=true
@@ -245,10 +261,10 @@ DATABASE_URL="postgresql://user:pass@localhost/db"
 ### 2. Parsing de YAML
 
 ```javascript
-const { loadYaml, parseYaml } = require('./Configify');
+const { loadYaml, parseYaml } = require("./Configify");
 
 // De arquivo
-const config = loadYaml('config.yaml');
+const config = loadYaml("config.yaml");
 
 // De string
 const yamlString = `
@@ -267,6 +283,7 @@ const config = parseYaml(yamlString);
 ### 3. Exemplo Completo de Configuração
 
 **Estrutura de projeto:**
+
 ```
 my-app/
 ├── config/
@@ -277,6 +294,7 @@ my-app/
 ```
 
 **config/app.yaml:**
+
 ```yaml
 app:
   name: "My Awesome App"
@@ -301,6 +319,7 @@ features:
 ```
 
 **config/database.yaml:**
+
 ```yaml
 database:
   host: "localhost"
@@ -316,20 +335,21 @@ database:
 ```
 
 **index.js:**
+
 ```javascript
-const { loadEnv, loadYaml } = require('./Configify');
+const { loadEnv, loadYaml } = require("./Configify");
 
 // 1. Carrega variáveis de ambiente
 loadEnv();
 
 // 2. Carrega configurações YAML
-const appConfig = loadYaml('./config/app.yaml');
-const dbConfig = loadYaml('./config/database.yaml');
+const appConfig = loadYaml("./config/app.yaml");
+const dbConfig = loadYaml("./config/database.yaml");
 
 // 3. Merge das configurações (opcional)
 const config = {
   ...appConfig,
-  database: dbConfig.database
+  database: dbConfig.database,
 };
 
 // 4. Usa as configurações
@@ -338,8 +358,8 @@ console.log(`Port: ${config.app.port}`);
 console.log(`Database: ${config.database.host}:${config.database.port}`);
 
 // Tudo tipado corretamente!
-console.log(typeof config.app.port);     // "number"
-console.log(typeof config.app.debug);    // "boolean"
+console.log(typeof config.app.port); // "number"
+console.log(typeof config.app.debug); // "boolean"
 console.log(Array.isArray(config.features)); // true
 ```
 
@@ -354,13 +374,13 @@ O Configify converte automaticamente valores para seus tipos corretos:
 ```yaml
 # config.yaml
 settings:
-  port: 3000          # → number
-  debug: true         # → boolean
-  timeout: 5000       # → number
-  name: "MyApp"       # → string (aspas preservam)
-  version: 1.0        # → number
-  nullValue: null     # → null
-  empty: ""           # → string vazia
+  port: 3000 # → number
+  debug: true # → boolean
+  timeout: 5000 # → number
+  name: "MyApp" # → string (aspas preservam)
+  version: 1.0 # → number
+  nullValue: null # → null
+  empty: "" # → string vazia
 ```
 
 ### Suporte a Estruturas Complexas
@@ -387,11 +407,11 @@ mixed:
 
 ```javascript
 // .env
-PORT=3000
-NODE_ENV=development
+PORT = 3000;
+NODE_ENV = development;
 
 // Código
-const { loadEnv } = require('./Configify');
+const { loadEnv } = require("./Configify");
 loadEnv();
 
 // process.env.PORT = 3000 (number)
@@ -417,6 +437,7 @@ O Configify foi projetado com filosofia **"batteries included"**:
 ### Limitações Conscientes
 
 O parser YAML do Configify **não** suporta:
+
 - Tags customizadas (`!!binary`, `!!timestamp`)
 - Referências (`&anchor`, `*alias`)
 - Funções (`!!js/function`)
@@ -428,71 +449,91 @@ Mas cobre **100%** dos casos de configuração comuns!
 
 ## 📊 Comparação com Alternativas
 
-| Funcionalidade | Configify | dotenv + js-yaml | config | convict |
-|----------------|-----------|------------------|--------|---------|
-| **Dependências** | 0 | 2 | 1 | 1 |
-| **Bundle Size** | ~3KB | ~700KB | ~150KB | ~300KB |
-| **YAML Support** | ✅ | ✅ | ❌ | ❌ |
-| **Auto-typing** | ✅ | ❌ | ✅ | ✅ |
-| **Nested Configs** | ✅ | ✅ | ✅ | ✅ |
-| **Env Loading** | ✅ | ✅ | ❌ | ❌ |
-| **List Support** | ✅ | ✅ | ✅ | ✅ |
-| **Zero Config** | ✅ | ❌ | ❌ | ❌ |
+| Funcionalidade     | Configify | dotenv + js-yaml | config | convict |
+| ------------------ | --------- | ---------------- | ------ | ------- |
+| **Dependências**   | 0         | 2                | 1      | 1       |
+| **Bundle Size**    | ~3KB      | ~700KB           | ~150KB | ~300KB  |
+| **YAML Support**   | ✅        | ✅               | ❌     | ❌      |
+| **Auto-typing**    | ✅        | ❌               | ✅     | ✅      |
+| **Nested Configs** | ✅        | ✅               | ✅     | ✅      |
+| **Env Loading**    | ✅        | ✅               | ❌     | ❌      |
+| **List Support**   | ✅        | ✅               | ✅     | ✅      |
+| **Zero Config**    | ✅        | ❌               | ❌     | ❌      |
 
 ---
 
 ## 🔍 Casos de Uso
 
 ### Microserviços
+
 ```javascript
 // Pequenos serviços onde bundle size importa
-const { loadEnv, loadYaml } = require('./Configify');
+const { loadEnv, loadYaml } = require("./Configify");
 
 loadEnv();
-const config = loadYaml('./config/service.yaml');
+const config = loadYaml("./config/service.yaml");
 
 // Configuração completa sem dependências!
 ```
 
 ### Serverless Functions
+
 ```javascript
 // AWS Lambda, Vercel Functions, etc.
-const { loadEnv } = require('./Configify');
+const { loadEnv } = require("./Configify");
 
 loadEnv();
 // Cold start mais rápido, menos dependências para resolver
 ```
 
 ### CLI Tools
+
 ```javascript
 // Ferramentas de linha de comando
-const { loadYaml } = require('./Configify');
+const { loadYaml } = require("./Configify");
 
-const config = loadYaml('./.toolrc.yaml');
+const config = loadYaml("./.toolrc.yaml");
 // Configuração declarativa sem bloat
 ```
 
 ### Projetos Pequenos/Médios
+
 ```javascript
 // Quando não quer instalar 5 bibliotecas para configuração básica
-const { loadEnv, loadYaml } = require('./Configify');
+const { loadEnv, loadYaml } = require("./Configify");
 
 // Tudo que precisa em um arquivo leve
 ```
 
 ---
 
-## 🧪 Testes e Qualidade
+## 🧪 Testes e Exemplos
+
+### Executar Testes
+
+A biblioteca utiliza o test runner nativo do Node.js (disponível na v18+).
 
 ```bash
-# Rodar testes
+# Rodar testes nativos
 npm test
+```
 
-# Verificar cobertura
-npm run coverage
+### Executar Exemplos
 
-# Lint
-npm run lint
+Você pode executar os exemplos práticos incluídos na pasta `examples`:
+
+```bash
+# Executar todos os exemplos sequencialmente
+npm run examples
+
+# Executar exemplo específico de servidor
+npm run example:server
+
+# Executar exemplo específico de banco de dados
+npm run example:db
+
+# Executar teste de carregamento global
+npm run example:global
 ```
 
 ---
@@ -504,9 +545,11 @@ npm run lint
 Carrega variáveis de ambiente de arquivo `.env`.
 
 **Parâmetros:**
+
 - `filePath` (opcional): Caminho do arquivo .env (padrão: '.env')
 
 **Comportamento:**
+
 - Não sobrescreve variáveis já existentes em `process.env`
 - Suporta aspas simples e duplas
 - Ignora comentários (#) e linhas vazias
@@ -516,9 +559,11 @@ Carrega variáveis de ambiente de arquivo `.env`.
 Converte string YAML para objeto JavaScript.
 
 **Parâmetros:**
+
 - `yamlString`: String contendo YAML válido
 
 **Retorno:**
+
 - Objeto JavaScript com estrutura aninhada
 - Tipagem automática (boolean, number, string, null)
 
@@ -527,9 +572,11 @@ Converte string YAML para objeto JavaScript.
 Lê arquivo YAML e retorna objeto JavaScript.
 
 **Parâmetros:**
+
 - `filePath`: Caminho do arquivo YAML
 
 **Retorno:**
+
 - Objeto JavaScript ou `null` se arquivo não existir
 
 ---
