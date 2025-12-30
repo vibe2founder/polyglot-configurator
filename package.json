@@ -5,7 +5,11 @@
   "main": "src/index.js",
   "scripts": {
     "start": "node src/index.js",
-    "test": "node --test test/*.test.js"
+    "test": "node --test test/*.test.js",
+    "example:server": "node examples/server-config.js",
+    "example:db": "node examples/database-config.js",
+    "example:global": "node examples/test-global-config.js",
+    "examples": "npm run example:global && npm run example:db && npm run example:server"
   },
   "keywords": [
     "config",
