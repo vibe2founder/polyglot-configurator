@@ -4,10 +4,10 @@
  * @returns {any} Valor tipado
  */
 function parseValue(value) {
-  if (typeof value !== 'string') return value;
-  
+  if (typeof value !== "string") return value;
+
   let trimmedValue = value.trim();
-  
+
   // 1. Remove comments respecting quotes
   let inDoubleQuote = false;
   let inSingleQuote = false;
@@ -15,12 +15,12 @@ function parseValue(value) {
 
   for (let i = 0; i < trimmedValue.length; i++) {
     const char = trimmedValue[i];
-    
+
     if (char === '"' && !inSingleQuote) {
       inDoubleQuote = !inDoubleQuote;
     } else if (char === "'" && !inDoubleQuote) {
       inSingleQuote = !inSingleQuote;
-    } else if (char === '#' && !inDoubleQuote && !inSingleQuote) {
+    } else if (char === "#" && !inDoubleQuote && !inSingleQuote) {
       commentIndex = i;
       break;
     }
@@ -44,11 +44,12 @@ function parseValue(value) {
   if (trimmedValue === "false") return false;
   if (trimmedValue === "null") return null;
   if (trimmedValue === "") return "";
-  
+
   const num = Number(trimmedValue);
   if (!isNaN(num) && trimmedValue !== "") return num;
-  
+
   return trimmedValue;
+}
 
 /**
  * Converte string YAML simplificada para Objeto JSON (Sem dependências de IO)

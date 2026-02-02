@@ -1,4 +1,5 @@
 const { describe, it, expect } = require("vitest");
+const assert = require("node:assert");
 const fs = require("fs");
 const path = require("path");
 const { parseYaml, loadEnv, loadYaml } = require("../src/index");
