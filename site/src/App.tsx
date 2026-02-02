@@ -43,10 +43,12 @@ const App = () => {
           <div className="flex items-center space-x-3">
             <img
               src="/logo.png"
-              alt="Configify Logo"
+              alt="one-configurator-4-all Logo"
               className="h-10 w-auto rounded-lg shadow-lg shadow-primary/20"
             />
-            <span className="text-xl font-bold tracking-tight">Configify</span>
+            <span className="text-xl font-bold tracking-tight">
+              one-configurator-4-all
+            </span>
           </div>
           <div className="hidden md:flex items-center space-x-8 text-sm font-medium text-gray-400">
             <a href="#features" className="hover:text-white transition-colors">
@@ -83,19 +85,20 @@ const App = () => {
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ duration: 0.5 }}
-              className="inline-flex items-center space-x-2 bg-primary/10 border border-primary/20 px-4 py-1.5 rounded-full mb-8"
+              className="pt-12 inline-flex items-center space-x-2 mb-8"
             >
-              <Zap className="w-4 h-4 text-primary" />
-              <span className="text-xs font-bold text-primary tracking-widest uppercase">
-                Version 0.1.0 is Live
-              </span>
+              <img
+                src="/logo.png"
+                alt="one-configurator-4-all Logo"
+                className="w-full md:max-w-[400px] mx-auto"
+              />
             </motion.div>
 
             <motion.h1
               initial={{ y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.2 }}
-              className="text-6xl md:text-8xl font-black mb-6 tracking-tighter"
+              className="text-4xl md:text-6xl font-black mb-6 tracking-tighter"
             >
               Configure <span className="text-gradient">Everything</span>.<br />
               Install{" "}
@@ -224,7 +227,7 @@ const App = () => {
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center opacity-60">
           <div className="flex items-center space-x-2 mb-8 md:mb-0">
             <Settings className="w-5 h-5 text-primary" />
-            <span className="font-bold">Configify</span>
+            <span className="font-bold">one-configurator-4-all</span>
           </div>
           <p className="text-sm text-center md:text-left">
             Built with ❤️ for the community by suissa. Licensed under MIT.

@@ -166,7 +166,7 @@ function loadGlobalConfig() {
 global.getConfig = (path) => {
   if (!global.CONFIG || !global.CONFIG.all) {
     console.warn(
-      `[Configify] Atenção: Tentando obter '${path}' mas as configurações globais não foram carregadas. Chame loadGlobalConfig() primeiro.`
+      `[one-configurator-4-all] Atenção: Tentando obter '${path}' mas as configurações globais não foram carregadas. Chame loadGlobalConfig() primeiro.`,
     );
     return undefined;
   }

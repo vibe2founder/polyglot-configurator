@@ -2,7 +2,7 @@ const { describe, it } = require("node:test");
 const assert = require("node:assert");
 const { parseYaml, parseEnv } = require("../src/parser");
 
-describe("Configify Edge Cases - parseYaml", () => {
+describe("one-configurator-4-all Edge Cases - parseYaml", () => {
   it("should handle deeply nested structures", () => {
     const yaml = `
 level1:
@@ -60,11 +60,14 @@ config:
   });
 });
 
-describe("Configify Edge Cases - parseEnv", () => {
+describe("one-configurator-4-all Edge Cases - parseEnv", () => {
   it("should handle multiple equal signs (values with equals)", () => {
     const env = "CONNECTION_STRING=host=localhost;port=5432;user=admin";
     const result = parseEnv(env);
-    assert.strictEqual(result.CONNECTION_STRING, "host=localhost;port=5432;user=admin");
+    assert.strictEqual(
+      result.CONNECTION_STRING,
+      "host=localhost;port=5432;user=admin",
+    );
   });
 
   it("should handle empty values", () => {

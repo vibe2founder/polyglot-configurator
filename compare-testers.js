@@ -1,7 +1,9 @@
 const { execSync } = require("child_process");
 const { performance } = require("perf_hooks");
 
-console.log("🧪 Iniciando Comparação de Testers para Configify...\n");
+console.log(
+  "🧪 Iniciando Comparação de Testers para one-configurator-4-all...\n",
+);
 
 function measure(name, command) {
   process.stdout.write(`⏳ Executando ${name}... `);

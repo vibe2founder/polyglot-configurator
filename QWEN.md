@@ -1,8 +1,8 @@
-# Projeto: one-configurator-4-all (Configify)
+# Projeto: one-configurator-4-all (one-configurator-4-all)
 
 ## Visão Geral
 
-O **one-configurator-4-all**, também conhecido como **Configify**, é uma biblioteca JavaScript/Node.js ultra-leve e independente para gerenciamento de configurações. A principal característica deste projeto é que ele oferece funcionalidades completas de carregamento e parsing de configurações sem depender de nenhuma biblioteca externa, mantendo o tamanho do bundle mínimo.
+O **one-configurator-4-all**, também conhecido como **one-configurator-4-all**, é uma biblioteca JavaScript/Node.js ultra-leve e independente para gerenciamento de configurações. A principal característica deste projeto é que ele oferece funcionalidades completas de carregamento e parsing de configurações sem depender de nenhuma biblioteca externa, mantendo o tamanho do bundle mínimo.
 
 ## Propósito
 

@@ -6,8 +6,31 @@
 function parseValue(value) {
   if (typeof value !== 'string') return value;
   
-  const trimmedValue = value.trim();
+  let trimmedValue = value.trim();
   
+  // 1. Remove comments respecting quotes
+  let inDoubleQuote = false;
+  let inSingleQuote = false;
+  let commentIndex = -1;
+
+  for (let i = 0; i < trimmedValue.length; i++) {
+    const char = trimmedValue[i];
+    
+    if (char === '"' && !inSingleQuote) {
+      inDoubleQuote = !inDoubleQuote;
+    } else if (char === "'" && !inDoubleQuote) {
+      inSingleQuote = !inSingleQuote;
+    } else if (char === '#' && !inDoubleQuote && !inSingleQuote) {
+      commentIndex = i;
+      break;
+    }
+  }
+
+  if (commentIndex !== -1) {
+    trimmedValue = trimmedValue.substring(0, commentIndex).trim();
+  }
+
+  // 2. Process quotes after comment removal
   const isQuoted =
     (trimmedValue.startsWith('"') && trimmedValue.endsWith('"')) ||
     (trimmedValue.startsWith("'") && trimmedValue.endsWith("'"));
@@ -16,22 +39,16 @@ function parseValue(value) {
     return trimmedValue.slice(1, -1);
   }
 
-  const hashIndex = trimmedValue.indexOf("#");
-  let effectiveValue = trimmedValue;
-  if (hashIndex !== -1) {
-    effectiveValue = trimmedValue.substring(0, hashIndex).trim();
-  }
-
-  if (effectiveValue === "true") return true;
-  if (effectiveValue === "false") return false;
-  if (effectiveValue === "null") return null;
-  if (effectiveValue === "") return "";
+  // 3. Process primitives
+  if (trimmedValue === "true") return true;
+  if (trimmedValue === "false") return false;
+  if (trimmedValue === "null") return null;
+  if (trimmedValue === "") return "";
   
-  const num = Number(effectiveValue);
-  if (!isNaN(num) && effectiveValue !== "") return num;
+  const num = Number(trimmedValue);
+  if (!isNaN(num) && trimmedValue !== "") return num;
   
-  return effectiveValue;
-}
+  return trimmedValue;
 
 /**
  * Converte string YAML simplificada para Objeto JSON (Sem dependências de IO)

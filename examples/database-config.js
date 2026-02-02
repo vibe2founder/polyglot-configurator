@@ -1,5 +1,5 @@
 // Exemplo de uso das configurações para conectar ao MongoDB
-// Este arquivo demonstra como usar as configurações globais carregadas pelo Configify
+// Este arquivo demonstra como usar as configurações globais carregadas pelo one-configurator-4-all
 
 // Importar o carregamento global das configurações
 const { loadGlobalConfig } = require("./global-config");
@@ -46,7 +46,7 @@ async function simulateConnection(appConfig) {
  */
 async function demonstrateDatabaseConfig() {
   console.log(
-    "🚀 Exemplo de Configuração de Banco de Dados usando Configify\n"
+    "🚀 Exemplo de Configuração de Banco de Dados usando one-configurator-4-all\n",
   );
 
   // Carregar configurações do banco usando getConfig

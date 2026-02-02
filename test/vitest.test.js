@@ -3,11 +3,11 @@ const fs = require("fs");
 const path = require("path");
 const { parseYaml, loadEnv, loadYaml } = require("../src/index");
 
-describe("Configify Core - parseYaml (Vitest)", () => {
+describe("one-configurator-4-all Core - parseYaml (Vitest)", () => {
   it("should parse simple key-value pairs", () => {
-    const yaml = "name: Configify\nversion: 1.0.0";
+    const yaml = "name: one-configurator-4-all\nversion: 1.0.0";
     const result = parseYaml(yaml);
-    assert.strictEqual(result.name, "Configify");
+    assert.strictEqual(result.name, "one-configurator-4-all");
     assert.strictEqual(result.version, "1.0.0");
   });
 
@@ -45,7 +45,7 @@ describe("Configify Core - parseYaml (Vitest)", () => {
   });
 });
 
-describe("Configify Core - loadEnv (Vitest)", () => {
+describe("one-configurator-4-all Core - loadEnv (Vitest)", () => {
   const envFile = path.join(__dirname, ".test.env.vitest");
 
   it("should load variables into process.env", () => {
@@ -59,7 +59,7 @@ describe("Configify Core - loadEnv (Vitest)", () => {
   it("should ignore comments and handle inline comments in .env", () => {
     fs.writeFileSync(
       envFile,
-      '# Secret\nSECRET_KEY_V=123 # internal\nQUOTED_KEY_V="abc # def"'
+      '# Secret\nSECRET_KEY_V=123 # internal\nQUOTED_KEY_V="abc # def"',
     );
     loadEnv(envFile);
     assert.strictEqual(process.env.SECRET_KEY_V, "123");
@@ -68,7 +68,7 @@ describe("Configify Core - loadEnv (Vitest)", () => {
   });
 });
 
-describe("Configify Core - loadYaml (Vitest)", () => {
+describe("one-configurator-4-all Core - loadYaml (Vitest)", () => {
   const yamlFile = path.join(__dirname, "test.vitest.yml");
 
   it("should load and parse yaml file", () => {
@@ -84,7 +84,7 @@ describe("Configify Core - loadYaml (Vitest)", () => {
   });
 });
 
-describe("Configify Utility - getConfig (Vitest)", () => {
+describe("one-configurator-4-all Utility - getConfig (Vitest)", () => {
   const mockConfig = {
     all: {
       app: { name: "Purecore", version: "1.0.0" },
