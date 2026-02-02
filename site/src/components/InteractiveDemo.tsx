@@ -24,8 +24,10 @@ database:
   const defaultEnv = `PORT=3000
 DEBUG=true
 API_KEY="sk-55123985"
-# Comentário de exemplo
-TIMEOUT=5000`;
+# Auto-typing supported
+TIMEOUT=5000
+MAX_CONN=null
+ENABLE_LOGS=false`;
 
   useEffect(() => {
     setInput(activeTab === 'yaml' ? defaultYaml : defaultEnv);
