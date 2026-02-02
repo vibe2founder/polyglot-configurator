@@ -11,6 +11,10 @@ export default defineConfig({
     },
     hmr: true,
   },
+  preview: {
+    port: 9874,
+    allowedHosts: ["one-configurator4-all.purecore.codes"],
+  },
   plugins: [react()],
   css: {
     postcss: "./postcss.config.mjs",
