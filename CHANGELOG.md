@@ -2,3 +2,4 @@
 
 ### What's Changed
 - ✨ feat: Enhanced .env support in Interactive Playground to demonstrate auto-typing capabilities.
+- 🎨 style: Updated navigation bar to display custom project logo.
