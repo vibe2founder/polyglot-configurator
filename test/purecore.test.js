@@ -4,11 +4,11 @@ const fs = require("fs");
 const path = require("path");
 const { parseYaml, loadEnv, loadYaml } = require("../src/index");
 
-describe("Configify Core - parseYaml", () => {
+describe("one-configurator-4-all Core - parseYaml", () => {
   it("should parse simple key-value pairs", () => {
-    const yaml = "name: Configify\nversion: 1.0.0";
+    const yaml = "name: one-configurator-4-all\nversion: 1.0.0";
     const result = parseYaml(yaml);
-    assert.strictEqual(result.name, "Configify");
+    assert.strictEqual(result.name, "one-configurator-4-all");
     assert.strictEqual(result.version, "1.0.0");
   });
 
@@ -46,7 +46,7 @@ describe("Configify Core - parseYaml", () => {
   });
 });
 
-describe("Configify Core - loadEnv", () => {
+describe("one-configurator-4-all Core - loadEnv", () => {
   const envFile = path.join(__dirname, ".test.env");
 
   it("should load variables into process.env", () => {
@@ -60,7 +60,7 @@ describe("Configify Core - loadEnv", () => {
   it("should ignore comments and handle inline comments in .env", () => {
     fs.writeFileSync(
       envFile,
-      '# Secret\nSECRET_KEY=123 # internal\nQUOTED_KEY="abc # def"'
+      '# Secret\nSECRET_KEY=123 # internal\nQUOTED_KEY="abc # def"',
     );
     loadEnv(envFile);
     assert.strictEqual(process.env.SECRET_KEY, "123");
@@ -69,7 +69,7 @@ describe("Configify Core - loadEnv", () => {
   });
 });
 
-describe("Configify Core - loadYaml", () => {
+describe("one-configurator-4-all Core - loadYaml", () => {
   const yamlFile = path.join(__dirname, "test.yml");
 
   it("should load and parse yaml file", () => {
@@ -85,7 +85,7 @@ describe("Configify Core - loadYaml", () => {
   });
 });
 
-describe("Configify Utility - getConfig (Simulation from Examples)", () => {
+describe("one-configurator-4-all Utility - getConfig (Simulation from Examples)", () => {
   const mockConfig = {
     all: {
       app: { name: "Purecore", version: "1.0.0" },

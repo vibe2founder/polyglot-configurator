@@ -10,7 +10,7 @@ const InteractiveDemo = () => {
   const [copied, setCopied] = useState(false);
 
   const defaultYaml = `app:
-  name: Configify Demo
+  name: one-configurator-4-all Demo
   version: 1.0.0
   features:
     - Zero Dependencies

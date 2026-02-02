@@ -6,7 +6,7 @@
 
 > **one-configurator-4-all** - Uma biblioteca ultra-leve e independente para gerenciamento de configurações em Node.js/JavaScript
 
-[![npm version](https://badge.fury.io/js/configify.svg)](https://badge.fury.io/js/configify)
+[![npm version](https://badge.fury.io/js/one-configurator-4-all.svg)](https://badge.fury.io/js/one-configurator-4-all)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Zero Dependencies](https://img.shields.io/badge/dependencies-0-green.svg)]()
 
@@ -103,11 +103,11 @@ database:
 // Funciona, mas... vale a pena 500KB para isso?
 ```
 
-**Com Configify:**
+**Com one-configurator-4-all:**
 
 ```javascript
 // ✅ Parser YAML nativo e leve
-const { loadYaml } = require("./Configify");
+const { loadYaml } = require("./one-configurator-4-all");
 
 const config = loadYaml("config.yaml");
 // Mesmo resultado, sem dependências!
@@ -137,7 +137,7 @@ const config = {
 // Fácil perder alguma conversão de tipo!
 ```
 
-**Solução Configify:**
+**Solução one-configurator-4-all:**
 
 ```yaml
 # config.yaml
@@ -159,7 +159,7 @@ api:
 
 ```javascript
 // ✅ Estrutura limpa e tipada
-const { loadYaml } = require("./Configify");
+const { loadYaml } = require("./one-configurator-4-all");
 const config = loadYaml("config.yaml");
 
 console.log(config.database.port); // 5432 (number)
@@ -186,7 +186,7 @@ console.log(config.api.features); // ['auth', 'cache', 'logging'] (array)
 
 **Total: ~1.35MB** só para configuração!
 
-**Com Configify:**
+**Com one-configurator-4-all:**
 
 ```json
 // ✅ Zero dependências
@@ -201,7 +201,7 @@ console.log(config.api.features); // ['auth', 'cache', 'logging'] (array)
 
 ## 🛠️ Como Funciona
 
-O Configify é construído com três funções principais:
+O one-configurator-4-all é construído com três funções principais:
 
 ### `loadEnv(filePath?)`
 
@@ -219,17 +219,17 @@ Lê arquivo YAML e retorna objeto JavaScript
 
 ## 📦 Instalação
 
-Como é uma biblioteca independente, simplesmente copie o arquivo `Configify.js` para seu projeto:
+Como é uma biblioteca independente, simplesmente copie o arquivo `one-configurator-4-all.js` para seu projeto:
 
 ```bash
 # Copie o arquivo para seu projeto
-cp Configify.js ./lib/Configify.js
+cp one-configurator-4-all.js ./lib/one-configurator-4-all.js
 ```
 
 Ou instale via npm (quando disponível):
 
 ```bash
-npm install configify
+npm install one-configurator-4-all
 ```
 
 ---
@@ -239,7 +239,7 @@ npm install configify
 ### 1. Carregamento de Variáveis de Ambiente
 
 ```javascript
-const { loadEnv } = require("./Configify");
+const { loadEnv } = require("./one-configurator-4-all");
 
 // Carrega .env do diretório atual
 loadEnv();
@@ -261,7 +261,7 @@ DATABASE_URL="postgresql://user:pass@localhost/db"
 ### 2. Parsing de YAML
 
 ```javascript
-const { loadYaml, parseYaml } = require("./Configify");
+const { loadYaml, parseYaml } = require("./one-configurator-4-all");
 
 // De arquivo
 const config = loadYaml("config.yaml");
@@ -337,7 +337,7 @@ database:
 **index.js:**
 
 ```javascript
-const { loadEnv, loadYaml } = require("./Configify");
+const { loadEnv, loadYaml } = require("./one-configurator-4-all");
 
 // 1. Carrega variáveis de ambiente
 loadEnv();
@@ -369,7 +369,7 @@ console.log(Array.isArray(config.features)); // true
 
 ### Tipagem Automática Inteligente
 
-O Configify converte automaticamente valores para seus tipos corretos:
+O one-configurator-4-all converte automaticamente valores para seus tipos corretos:
 
 ```yaml
 # config.yaml
@@ -411,7 +411,7 @@ PORT = 3000;
 NODE_ENV = development;
 
 // Código
-const { loadEnv } = require("./Configify");
+const { loadEnv } = require("./one-configurator-4-all");
 loadEnv();
 
 // process.env.PORT = 3000 (number)
@@ -427,7 +427,7 @@ process.env.NODE_ENV = "production"; // Mantém "production"
 
 ### Por Que Sem Dependências?
 
-O Configify foi projetado com filosofia **"batteries included"**:
+O one-configurator-4-all foi projetado com filosofia **"batteries included"**:
 
 1. **Parser YAML Próprio**: Implementação customizada que cobre 95% dos casos de uso comuns
 2. **Regex Simples**: Processamento de .env com expressões regulares eficientes
@@ -436,7 +436,7 @@ O Configify foi projetado com filosofia **"batteries included"**:
 
 ### Limitações Conscientes
 
-O parser YAML do Configify **não** suporta:
+O parser YAML do one-configurator-4-all **não** suporta:
 
 - Tags customizadas (`!!binary`, `!!timestamp`)
 - Referências (`&anchor`, `*alias`)
@@ -449,7 +449,7 @@ Mas cobre **100%** dos casos de configuração comuns!
 
 ## 📊 Comparação com Alternativas
 
-| Funcionalidade     | Configify | dotenv + js-yaml | config | convict |
+| Funcionalidade     | one-configurator-4-all | dotenv + js-yaml | config | convict |
 | ------------------ | --------- | ---------------- | ------ | ------- |
 | **Dependências**   | 0         | 2                | 1      | 1       |
 | **Bundle Size**    | ~3KB      | ~700KB           | ~150KB | ~300KB  |
@@ -468,7 +468,7 @@ Mas cobre **100%** dos casos de configuração comuns!
 
 ```javascript
 // Pequenos serviços onde bundle size importa
-const { loadEnv, loadYaml } = require("./Configify");
+const { loadEnv, loadYaml } = require("./one-configurator-4-all");
 
 loadEnv();
 const config = loadYaml("./config/service.yaml");
@@ -480,7 +480,7 @@ const config = loadYaml("./config/service.yaml");
 
 ```javascript
 // AWS Lambda, Vercel Functions, etc.
-const { loadEnv } = require("./Configify");
+const { loadEnv } = require("./one-configurator-4-all");
 
 loadEnv();
 // Cold start mais rápido, menos dependências para resolver
@@ -490,7 +490,7 @@ loadEnv();
 
 ```javascript
 // Ferramentas de linha de comando
-const { loadYaml } = require("./Configify");
+const { loadYaml } = require("./one-configurator-4-all");
 
 const config = loadYaml("./.toolrc.yaml");
 // Configuração declarativa sem bloat
@@ -500,7 +500,7 @@ const config = loadYaml("./.toolrc.yaml");
 
 ```javascript
 // Quando não quer instalar 5 bibliotecas para configuração básica
-const { loadEnv, loadYaml } = require("./Configify");
+const { loadEnv, loadYaml } = require("./one-configurator-4-all");
 
 // Tudo que precisa em um arquivo leve
 ```
@@ -611,8 +611,8 @@ Este projeto está sob a licença MIT - veja o arquivo [LICENSE](LICENSE) para d
 
 - [Documentação Completa](docs/)
 - [Exemplos](examples/)
-- [Issues](https://github.com/purecore/Configify/issues)
-- [Discussions](https://github.com/purecore/Configify/discussions)
+- [Issues](https://github.com/purecore/one-configurator-4-all/issues)
+- [Discussions](https://github.com/purecore/one-configurator-4-all/discussions)
 
 ---
 
@@ -622,4 +622,4 @@ Veja todas as mudanças e atualizações em: [CHANGELOG.md](../CHANGELOG.md)
 
 ---
 
-**Configify** - Porque configuração deveria ser simples, não complexa! 🚀
+**one-configurator-4-all** - Porque configuração deveria ser simples, não complexa! 🚀
