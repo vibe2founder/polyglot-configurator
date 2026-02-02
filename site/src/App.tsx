@@ -79,7 +79,7 @@ const App = () => {
 
       <main>
         {/* Hero Section */}
-        <section className="pt-24 pb-32 px-6">
+        <section className="pt-0 pb-32 px-6">
           <div className="max-w-7xl mx-auto text-center">
             <motion.div
               initial={{ scale: 0.9, opacity: 0 }}
@@ -90,7 +90,7 @@ const App = () => {
               <img
                 src="/logo.png"
                 alt="one-configurator-4-all Logo"
-                className="w-full md:max-w-[400px] mx-auto"
+                className="w-full md:max-w-[300px] mx-auto"
               />
             </motion.div>
 
@@ -100,7 +100,8 @@ const App = () => {
               transition={{ delay: 0.2 }}
               className="text-4xl md:text-6xl font-black mb-6 tracking-tighter"
             >
-              Configure <span className="text-gradient">Everything</span>.<br />
+              Configure <span className="text-purple-500">Everything</span>.
+              <br />
               Install{" "}
               <span className="underline decoration-primary/30">Nothing</span>.
             </motion.h1>
