@@ -6,9 +6,13 @@ export default defineConfig({
   server: {
     host: true,
     port: 9874,
+    watch: {
+      usePolling: true,
+    },
+    hmr: true,
   },
   plugins: [react()],
   css: {
-    postcss: './postcss.config.mjs',
+    postcss: "./postcss.config.mjs",
   },
-})
+});
