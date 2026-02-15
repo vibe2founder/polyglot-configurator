@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary: oklch(0.6 0.18 250);
+  --color-primary: oklch(0.48 0.23 308);
   --color-secondary: oklch(0.65 0.22 300);
   --color-accent: oklch(0.7 0.25 350);
   --color-background: oklch(0.15 0.02 250);
@@ -43,7 +43,7 @@
 
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 16px;
 }
 ::-webkit-scrollbar-track {
   background: var(--color-background);

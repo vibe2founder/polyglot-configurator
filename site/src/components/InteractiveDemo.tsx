@@ -75,7 +75,7 @@ ENABLE_LOGS=false`;
         </button>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-stretch">
+      <div className="mt-8 grid grid-cols-1 lg:grid-cols-2 gap-6 items-stretch">
         {/* Input Area */}
         <motion.div 
           initial={{ opacity: 0, x: -20 }}
