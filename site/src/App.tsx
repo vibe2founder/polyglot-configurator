@@ -1,7 +1,6 @@
 import { motion } from 'framer-motion';
 import { 
   Github, 
-  Zap, 
   ShieldCheck, 
   Layers, 
   Cpu, 
