@@ -1,11 +1,15 @@
 {
-  "name": "@purecore/one-config-4-all",
+  "name": "@purecore/one-configurator-4-all",
   "version": "0.1.0",
-  "description": "> **One Config 4 All** - Uma biblioteca ultra-leve e independente para gerenciamento de configurações em Node.js/JavaScript",
+  "description": "> **One Configurator 4 All** - Uma biblioteca ultra-leve e independente para gerenciamento de configurações em Node.js/JavaScript",
   "main": "src/index.js",
   "scripts": {
     "start": "node src/index.js",
-    "test": "node --test test/*.test.js",
+    "test": "npm run test:purecore",
+    "test:purecore": "node --test test/purecore.test.js",
+    "test:jest": "node_modules/.bin/jest test/jest.test.js --no-cache",
+    "test:vitest": "node_modules/.bin/vitest run test/vitest.test.js",
+    "test:compare": "node compare-testers.js",
     "example:server": "node examples/server-config.js",
     "example:db": "node examples/database-config.js",
     "example:global": "node examples/test-global-config.js",
@@ -13,7 +17,7 @@
   },
   "keywords": [
     "config",
-    "one-config-4-all",
+    "one-configurator-4-all",
     "configuração",
     "configurações",
     "configuração de aplicações",
@@ -24,11 +28,15 @@
   "author": "suissa",
   "repository": {
     "type": "git",
-    "url": "https://github.com/suissa/purecore-one-config-4-all"
+    "url": "https://github.com/suissa/purecore-one-configurator-4-all"
   },
   "bugs": {
-    "url": "https://github.com/suissa/purecore-one-config-4-all/issues"
+    "url": "https://github.com/suissa/purecore-one-configurator-4-all/issues"
   },
-  "homepage": "https://github.com/suissa/purecore-one-config-4-all",
-  "license": "MIT"
+  "homepage": "https://github.com/suissa/purecore-one-configurator-4-all",
+  "license": "MIT",
+  "devDependencies": {
+    "jest": "^30.2.0",
+    "vitest": "^4.0.16"
+  }
 }

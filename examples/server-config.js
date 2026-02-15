@@ -1,5 +1,5 @@
 // Exemplo de uso das configurações para configurar um servidor HTTP/API
-// Este arquivo demonstra como usar as configurações globais carregadas pelo Configify
+// Este arquivo demonstra como usar as configurações globais carregadas pelo one-configurator-4-all
 
 // Importar o carregamento global das configurações
 const { loadGlobalConfig } = require("./global-config");
@@ -11,7 +11,9 @@ loadGlobalConfig();
  * Simula configuração e inicialização do servidor HTTP
  */
 async function demonstrateServerConfig() {
-  console.log("🚀 Exemplo de Configuração de Servidor/API usando Configify\n");
+  console.log(
+    "🚀 Exemplo de Configuração de Servidor/API usando one-configurator-4-all\n",
+  );
 
   // Carregar configurações do servidor
   const serverConfig = {
