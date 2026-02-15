@@ -132,7 +132,7 @@ const App = () => {
               <img
                 src="/logo.png"
                 alt="one-configurator-4-all Logo"
-                className="w-full md:max-w-[350px] mx-auto relative z-50"
+                className="w-[60%] -top-6 md:top-0 md:w-[350px] mx-auto relative z-50"
               />
             </motion.div>
             
@@ -140,7 +140,7 @@ const App = () => {
               initial={{ y: 20, opacity: 0 }}
               animate={{ y: -50, opacity: 1 }}
               transition={{ delay: 0.7 }}
-              className="relative z-0 text-4xl md:text-7xl font-black mb-6 tracking-tighter"
+              className="relative z-0 text-3xl md:text-7xl font-black mb-6 tracking-tighter"
             >
               one-<span className="text-purple-500">configurator</span>-4-all
               
@@ -150,12 +150,14 @@ const App = () => {
               initial={{ y: 20, opacity: 0 }}
               animate={{ y: -40, opacity: 1 }}
               transition={{ delay: 0.9 }}
-              className="relative z-0 text-4xl md:text-6xl font-black mb-6 tracking-tighter"
+              className="relative z-0 text-3xl md:text-6xl font-black mb-6 tracking-tighter"
             >
               Configure <span className="text-purple-500">Everything</span>.
               <br />
-              Install{" "}
-              <span className="underline decoration-primary/30 text-purple-500">Nothing</span>.
+
+              <span className="text-[44px]">Install{" "}
+                <span className="underline decoration-primary/30 text-purple-500">Nothing</span>.
+              </span>
             </motion.h1>
 
             <motion.p
