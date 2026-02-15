@@ -1,14 +1,15 @@
 {
-  "name": "@purecore/one-configurator-4-all",
+  "name": "one-configurator-4-all",
   "version": "0.1.2",
-  "description": "> **One Configurator 4 All** - Uma biblioteca ultra-leve e independente para gerenciamento de configurações em Node.js/JavaScript",
+  "description": "Uma biblioteca ultra-leve e independente para gerenciamento de configurações em Node.js/JavaScript",
   "main": "src/index.js",
+  "public": true,
   "scripts": {
     "start": "node src/index.js",
     "test": "npm run test:purecore",
     "test:purecore": "node --test test/purecore.test.js",
-    "test:jest": "node_modules/.bin/jest test/jest.test.js --no-cache",
-    "test:vitest": "node_modules/.bin/vitest run test/vitest.test.js",
+    "test:jest": "jest test/jest.test.js --no-cache",
+    "test:vitest": "vitest run test/vitest.test.js",
     "test:compare": "node compare-testers.js",
     "example:server": "node examples/server-config.js",
     "example:db": "node examples/database-config.js",
@@ -28,7 +29,7 @@
   "author": "suissa",
   "repository": {
     "type": "git",
-    "url": "https://github.com/suissa/purecore-one-configurator-4-all"
+    "url": "git+https://github.com/suissa/purecore-one-configurator-4-all.git"
   },
   "bugs": {
     "url": "https://github.com/suissa/purecore-one-configurator-4-all/issues"
