@@ -1,6 +1,6 @@
 {
   "name": "@purecore/one-configurator-4-all",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "description": "> **One Configurator 4 All** - Uma biblioteca ultra-leve e independente para gerenciamento de configurações em Node.js/JavaScript",
   "main": "src/index.js",
   "scripts": {
