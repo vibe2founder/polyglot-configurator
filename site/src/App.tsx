@@ -76,6 +76,7 @@ const App = () => {
               alt="one-configurator-4-all Logo"
               className="h-10 w-auto rounded-lg shadow-lg shadow-primary/20"
             /> */}
+            <Settings className="w-6 h-6" />
             <span className="text-xl font-bold tracking-tight">
               one-configurator-4-all
             </span>
