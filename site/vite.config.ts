@@ -13,7 +13,7 @@ export default defineConfig({
   },
   preview: {
     port: 9874,
-    allowedHosts: ["one-configurator4-all.purecore.codes"],
+    allowedHosts: ["one-configurator-4-all.purecore.codes"],
   },
   plugins: [react()],
   css: {
