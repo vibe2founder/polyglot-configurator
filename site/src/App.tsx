@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { 
   Github, 
@@ -15,6 +16,7 @@ import InteractiveDemo from './components/InteractiveDemo';
 import './style.css';
 
 const App = () => {
+  const [imageLoaded, setImageLoaded] = useState(false);
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: { 
@@ -126,7 +128,7 @@ const App = () => {
           <div className="max-w-7xl mx-auto text-center">
             <motion.div
               initial={{ scale: 0.1, opacity: 0, y: -200 }}
-              animate={{ scale: 1, opacity: 1, y: 20 }}
+              animate={imageLoaded ? { scale: 1, opacity: 1, y: 20 } : { scale: 0.1, opacity: 0, y: -200 }}
               transition={{ duration: 0.7 }}
               className="relative z-50 pt-12 inline-flex items-center space-x-2 mb-8"
             >
@@ -134,12 +136,13 @@ const App = () => {
                 src="/logo.png"
                 alt="one-configurator-4-all Logo"
                 className="w-[60%] -top-6 md:top-0 md:w-[350px] mx-auto relative z-50"
+                onLoad={() => setImageLoaded(true)}
               />
             </motion.div>
             
             <motion.h1
               initial={{ y: 20, opacity: 0 }}
-              animate={{ y: -50, opacity: 1 }}
+              animate={imageLoaded ? { y: -50, opacity: 1 } : { y: 20, opacity: 0 }}
               transition={{ delay: 0.7 }}
               className="relative z-0 text-3xl md:text-7xl font-black mb-6 tracking-tighter"
             >
@@ -149,21 +152,21 @@ const App = () => {
 
             <motion.h1
               initial={{ y: 20, opacity: 0 }}
-              animate={{ y: -40, opacity: 1 }}
+              animate={imageLoaded ? { y: -40, opacity: 1 } : { y: 20, opacity: 0 }}
               transition={{ delay: 0.9 }}
               className="relative z-0 text-3xl md:text-6xl font-black mb-6 tracking-tighter"
             >
               Configure <span className="text-purple-500">Everything</span>.
               <br />
 
-              <span className="text-[44px]">Install{" "}
+              <span className="text-[44px] md:text-7xl">Install{" "}
                 <span className="underline decoration-primary/30 text-purple-500">Nothing</span>.
               </span>
             </motion.h1>
 
             <motion.p
               initial={{ y: 20, opacity: 0 }}
-              animate={{ y: -40, opacity: 1 }}
+              animate={imageLoaded ? { y: -40, opacity: 1 } : { y: 20, opacity: 0 }}
               transition={{ delay: 1.1 }}
               className="text-xl text-gray-400 max-w-2xl mx-auto mb-12 leading-relaxed"
             >
@@ -173,7 +176,7 @@ const App = () => {
 
             <motion.div
               initial={{ y: 20, opacity: 0 }}
-              animate={{ y: -40, opacity: 1 }}
+              animate={imageLoaded ? { y: -40, opacity: 1 } : { y: 20, opacity: 0 }}
               transition={{ delay: 1.4 }}
               className="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-4"
             >
