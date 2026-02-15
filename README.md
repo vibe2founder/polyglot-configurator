@@ -1,6 +1,6 @@
 <div align="center" style="background-color: #000">
 
-<img src="https://i.imgur.com/pbHtEww.png" style="display:block; margin: 0 auto; margint-top: 20px">
+<img src="https://i.imgur.com/azeBoAd.png" style="display:block; margin: 0 auto; margint-top: 20px">
 
 </div>
 
@@ -425,6 +425,67 @@ process.env.NODE_ENV = "production"; // Mantém "production"
 
 ## 🏗️ Arquitetura
 
+### Estrutura de Diretórios
+
+```
+one-configurator-4-all/
+├── src/
+│   ├── index.js          # Implementação principal
+│   └── parser.js         # Parser YAML customizado
+├── test/
+│   ├── purecore.test.js  # Testes com runner nativo do Node.js
+│   ├── jest.test.js      # Testes com Jest
+│   ├── vitest.test.js    # Testes com Vitest
+│   ├── bdd.test.js       # Testes BDD
+│   ├── edge-cases.test.js # Testes de casos extremos
+│   ├── unit-extended.test.js # Testes unitários estendidos
+│   └── yaml-deep.test.js # Testes YAML profundos
+├── examples/
+│   ├── config.json       # Exemplo de configuração JSON
+│   ├── config.yml        # Exemplo de configuração YAML
+│   ├── server-config.js  # Exemplo de configuração de servidor
+│   ├── database-config.js # Exemplo de configuração de banco de dados
+│   ├── global-config.js  # Exemplo de configuração global
+│   └── test-global-config.js # Teste de configuração global
+├── site/                 # Site de documentação/demo
+│   └── src/
+│       ├── components/
+│       │   └── InteractiveDemo.tsx
+│       ├── lib/
+│       │   └── parser.ts
+│       ├── App.tsx
+│       └── main.tsx
+├── README.md
+├── package.json
+└── compare-testers.js    # Comparação de runners de teste
+```
+
+### Componentes Principais
+
+#### `src/index.js`
+Contém as três funções principais:
+- `loadEnv(filePath)`: Carrega variáveis de ambiente de arquivos .env
+- `parseYaml(yamlString)`: Converte string YAML para objeto JavaScript
+- `loadYaml(filePath)`: Lê arquivo YAML e retorna objeto JavaScript
+
+#### Funções Detalhadas
+
+1. **`loadEnv(filePath = ".env")`**:
+   - Lê arquivo .env e carrega variáveis em `process.env`
+   - Suporta aspas simples e duplas
+   - Ignora comentários e linhas vazias
+   - Não sobrescreve variáveis já existentes
+
+2. **`parseYaml(yamlString)`**:
+   - Parser YAML customizado sem dependências
+   - Suporta objetos aninhados, listas e tipagem automática
+   - Converte automaticamente strings para números, booleanos e null
+   - Ignora comentários e manipula indentação corretamente
+
+3. **`loadYaml(filePath)`**:
+   - Lê arquivo YAML do sistema de arquivos
+   - Retorna objeto JavaScript ou null se arquivo não existir
+
 ### Por Que Sem Dependências?
 
 O one-configurator-4-all foi projetado com filosofia **"batteries included"**:
@@ -535,6 +596,24 @@ npm run example:db
 # Executar teste de carregamento global
 npm run example:global
 ```
+
+---
+
+## 📝 Scripts Disponíveis
+
+No `package.json`, os seguintes scripts estão definidos:
+
+| Script | Descrição |
+|--------|-----------|
+| `npm test` | Executa testes usando o runner nativo do Node.js |
+| `npm run test:purecore` | Testes com runner nativo |
+| `npm run test:jest` | Testes com Jest |
+| `npm run test:vitest` | Testes com Vitest |
+| `npm run test:compare` | Compara desempenho entre runners |
+| `npm run examples` | Executa todos os exemplos |
+| `npm run example:server` | Exemplo de configuração de servidor |
+| `npm run example:db` | Exemplo de configuração de banco de dados |
+| `npm run example:global` | Exemplo de configuração global |
 
 ---
 
