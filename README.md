@@ -1,18 +1,17 @@
 <div align="center" style="background-color: #000">
-
-<img src="https://i.imgur.com/azeBoAd.png" style="display:block; margin: 0 auto; margint-top: 20px">
+<h1 align="center">Polyglot Configurator</h1>
 
 </div>
 
-> **one-configurator-4-all** - Uma biblioteca ultra-leve e independente para gerenciamento de configurações em Node.js/JavaScript
+> **polyglot-configurator** - Uma biblioteca ultra-leve e independente para gerenciamento de configurações em Node.js/JavaScript
 
-[![npm version](https://badge.fury.io/js/one-configurator-4-all.svg)](https://badge.fury.io/js/one-configurator-4-all)
+[![npm version](https://badge.fury.io/js/polyglot-configurator.svg)](https://badge.fury.io/js/polyglot-configurator)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Zero Dependencies](https://img.shields.io/badge/dependencies-0-green.svg)]()
 
-## 🎯 O que é o one-configurator-4-all?
+## 🎯 O que é o polyglot-configurator?
 
-O **one-configurator-4-all** é uma biblioteca JavaScript/Node.js que resolve um problema crítico no ecossistema: **gerenciar configurações de aplicações sem adicionar dependências externas pesadas**.
+O **polyglot-configurator** é uma biblioteca JavaScript/Node.js que resolve um problema crítico no ecossistema: **gerenciar configurações de aplicações sem adicionar dependências externas pesadas**.
 
 Ele oferece uma solução completa para:
 
@@ -24,7 +23,7 @@ Ele oferece uma solução completa para:
 
 ---
 
-## 🚨 Problemas Que O one-configurator-4-all Resolve
+## 🚨 Problemas Que O polyglot-configurator Resolve
 
 ### 1. **O Pesadelo Das Dependências Externas**
 
@@ -41,11 +40,11 @@ const config = yaml.load(fs.readFileSync("config.yaml", "utf8")); // + ~500KB
 // Bundle final: +700KB só para configuração básica!
 ```
 
-**Com one-configurator-4-all:**
+**Com polyglot-configurator:**
 
 ```javascript
 // ✅ Zero dependências
-const { loadEnv, loadYaml } = require("./one-configurator-4-all");
+const { loadEnv, loadYaml } = require("./polyglot-configurator");
 
 loadEnv(); // Carrega .env automaticamente
 const config = loadYaml("config.yaml"); // Parseia YAML
@@ -70,11 +69,11 @@ const port = parseInt(process.env.PORT);
 const debug = process.env.DEBUG === "true";
 ```
 
-**Solução one-configurator-4-all:**
+**Solução polyglot-configurator:**
 
 ```javascript
 // ✅ Tipagem automática inteligente
-const { loadEnv } = require("./one-configurator-4-all");
+const { loadEnv } = require("./polyglot-configurator");
 loadEnv(".env");
 
 // Valores já vêm com tipos corretos!
@@ -103,11 +102,11 @@ database:
 // Funciona, mas... vale a pena 500KB para isso?
 ```
 
-**Com one-configurator-4-all:**
+**Com polyglot-configurator:**
 
 ```javascript
 // ✅ Parser YAML nativo e leve
-const { loadYaml } = require("./one-configurator-4-all");
+const { loadYaml } = require("./polyglot-configurator");
 
 const config = loadYaml("config.yaml");
 // Mesmo resultado, sem dependências!
@@ -137,7 +136,7 @@ const config = {
 // Fácil perder alguma conversão de tipo!
 ```
 
-**Solução one-configurator-4-all:**
+**Solução polyglot-configurator:**
 
 ```yaml
 # config.yaml
@@ -159,7 +158,7 @@ api:
 
 ```javascript
 // ✅ Estrutura limpa e tipada
-const { loadYaml } = require("./one-configurator-4-all");
+const { loadYaml } = require("./polyglot-configurator");
 const config = loadYaml("config.yaml");
 
 console.log(config.database.port); // 5432 (number)
@@ -186,7 +185,7 @@ console.log(config.api.features); // ['auth', 'cache', 'logging'] (array)
 
 **Total: ~1.35MB** só para configuração!
 
-**Com one-configurator-4-all:**
+**Com polyglot-configurator:**
 
 ```json
 // ✅ Zero dependências
@@ -201,7 +200,7 @@ console.log(config.api.features); // ['auth', 'cache', 'logging'] (array)
 
 ## 🛠️ Como Funciona
 
-O one-configurator-4-all é construído com três funções principais:
+O polyglot-configurator é construído com três funções principais:
 
 ### `loadEnv(filePath?)`
 
@@ -219,17 +218,17 @@ Lê arquivo YAML e retorna objeto JavaScript
 
 ## 📦 Instalação
 
-Como é uma biblioteca independente, simplesmente copie o arquivo `one-configurator-4-all.js` para seu projeto:
+Como é uma biblioteca independente, simplesmente copie o arquivo `polyglot-configurator.js` para seu projeto:
 
 ```bash
 # Copie o arquivo para seu projeto
-cp one-configurator-4-all.js ./lib/one-configurator-4-all.js
+cp polyglot-configurator.js ./lib/polyglot-configurator.js
 ```
 
 Ou instale via npm (quando disponível):
 
 ```bash
-npm install one-configurator-4-all
+npm install polyglot-configurator
 ```
 
 ---
@@ -239,7 +238,7 @@ npm install one-configurator-4-all
 ### 1. Carregamento de Variáveis de Ambiente
 
 ```javascript
-const { loadEnv } = require("./one-configurator-4-all");
+const { loadEnv } = require("./polyglot-configurator");
 
 // Carrega .env do diretório atual
 loadEnv();
@@ -261,7 +260,7 @@ DATABASE_URL="postgresql://user:pass@localhost/db"
 ### 2. Parsing de YAML
 
 ```javascript
-const { loadYaml, parseYaml } = require("./one-configurator-4-all");
+const { loadYaml, parseYaml } = require("./polyglot-configurator");
 
 // De arquivo
 const config = loadYaml("config.yaml");
@@ -337,7 +336,7 @@ database:
 **index.js:**
 
 ```javascript
-const { loadEnv, loadYaml } = require("./one-configurator-4-all");
+const { loadEnv, loadYaml } = require("./polyglot-configurator");
 
 // 1. Carrega variáveis de ambiente
 loadEnv();
@@ -369,7 +368,7 @@ console.log(Array.isArray(config.features)); // true
 
 ### Tipagem Automática Inteligente
 
-O one-configurator-4-all converte automaticamente valores para seus tipos corretos:
+O polyglot-configurator converte automaticamente valores para seus tipos corretos:
 
 ```yaml
 # config.yaml
@@ -411,7 +410,7 @@ PORT = 3000;
 NODE_ENV = development;
 
 // Código
-const { loadEnv } = require("./one-configurator-4-all");
+const { loadEnv } = require("./polyglot-configurator");
 loadEnv();
 
 // process.env.PORT = 3000 (number)
@@ -428,7 +427,7 @@ process.env.NODE_ENV = "production"; // Mantém "production"
 ### Estrutura de Diretórios
 
 ```
-one-configurator-4-all/
+polyglot-configurator/
 ├── src/
 │   ├── index.js          # Implementação principal
 │   └── parser.js         # Parser YAML customizado
@@ -488,7 +487,7 @@ Contém as três funções principais:
 
 ### Por Que Sem Dependências?
 
-O one-configurator-4-all foi projetado com filosofia **"batteries included"**:
+O polyglot-configurator foi projetado com filosofia **"batteries included"**:
 
 1. **Parser YAML Próprio**: Implementação customizada que cobre 95% dos casos de uso comuns
 2. **Regex Simples**: Processamento de .env com expressões regulares eficientes
@@ -497,7 +496,7 @@ O one-configurator-4-all foi projetado com filosofia **"batteries included"**:
 
 ### Limitações Conscientes
 
-O parser YAML do one-configurator-4-all **não** suporta:
+O parser YAML do polyglot-configurator **não** suporta:
 
 - Tags customizadas (`!!binary`, `!!timestamp`)
 - Referências (`&anchor`, `*alias`)
@@ -510,7 +509,7 @@ Mas cobre **100%** dos casos de configuração comuns!
 
 ## 📊 Comparação com Alternativas
 
-| Funcionalidade     | one-configurator-4-all | dotenv + js-yaml | config | convict |
+| Funcionalidade     | polyglot-configurator | dotenv + js-yaml | config | convict |
 | ------------------ | --------- | ---------------- | ------ | ------- |
 | **Dependências**   | 0         | 2                | 1      | 1       |
 | **Bundle Size**    | ~3KB      | ~700KB           | ~150KB | ~300KB  |
@@ -529,7 +528,7 @@ Mas cobre **100%** dos casos de configuração comuns!
 
 ```javascript
 // Pequenos serviços onde bundle size importa
-const { loadEnv, loadYaml } = require("./one-configurator-4-all");
+const { loadEnv, loadYaml } = require("./polyglot-configurator");
 
 loadEnv();
 const config = loadYaml("./config/service.yaml");
@@ -541,7 +540,7 @@ const config = loadYaml("./config/service.yaml");
 
 ```javascript
 // AWS Lambda, Vercel Functions, etc.
-const { loadEnv } = require("./one-configurator-4-all");
+const { loadEnv } = require("./polyglot-configurator");
 
 loadEnv();
 // Cold start mais rápido, menos dependências para resolver
@@ -551,7 +550,7 @@ loadEnv();
 
 ```javascript
 // Ferramentas de linha de comando
-const { loadYaml } = require("./one-configurator-4-all");
+const { loadYaml } = require("./polyglot-configurator");
 
 const config = loadYaml("./.toolrc.yaml");
 // Configuração declarativa sem bloat
@@ -561,7 +560,7 @@ const config = loadYaml("./.toolrc.yaml");
 
 ```javascript
 // Quando não quer instalar 5 bibliotecas para configuração básica
-const { loadEnv, loadYaml } = require("./one-configurator-4-all");
+const { loadEnv, loadYaml } = require("./polyglot-configurator");
 
 // Tudo que precisa em um arquivo leve
 ```
@@ -690,8 +689,8 @@ Este projeto está sob a licença MIT - veja o arquivo [LICENSE](LICENSE) para d
 
 - [Documentação Completa](docs/)
 - [Exemplos](examples/)
-- [Issues](https://github.com/purecore/one-configurator-4-all/issues)
-- [Discussions](https://github.com/purecore/one-configurator-4-all/discussions)
+- [Issues](https://github.com/purecore/polyglot-configurator/issues)
+- [Discussions](https://github.com/purecore/polyglot-configurator/discussions)
 
 ---
 
@@ -701,4 +700,4 @@ Veja todas as mudanças e atualizações em: [CHANGELOG.md](../CHANGELOG.md)
 
 ---
 
-**one-configurator-4-all** - Porque configuração deveria ser simples, não complexa! 🚀
+**polyglot-configurator** - Porque configuração deveria ser simples, não complexa! 🚀
